@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Geometric_figures.Entity
 {
-    internal class Point2D
+    public class Point2D
     {
         private double x;
         private double y;

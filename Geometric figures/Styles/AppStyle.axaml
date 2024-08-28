@@ -54,15 +54,24 @@
 		<Setter Property="Foreground" Value="White"/>
 	</Style>
 
+	<Style Selector="Button">
+		<Setter Property="Background" Value="#424544"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="CornerRadius" Value="20"/>
+	</Style>
+
+	<Style Selector="Button:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="#262A29"/>
+	</Style>
+
 	<Style Selector="Button.Confirm">
 		<Setter Property="Foreground" Value="White"/>
 		<Setter Property="FontSize" Value="12"/>
 		<Setter Property="VerticalContentAlignment" Value="Center"/>
 		<Setter Property="HorizontalContentAlignment" Value="Center"/>
 		<Setter Property="HorizontalAlignment" Value="Right"/>
-	</Style>
-
-	<Style Selector="Button.Confirm /template/ ContentPresenter">
 		<Setter Property="CornerRadius" Value="20"/>
 		<Setter Property="Background" Value="#33BB49"/>
 	</Style>

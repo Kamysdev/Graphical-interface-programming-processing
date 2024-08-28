@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Geometric_figures.Entity
 {
-    internal class Rectangle
+    public class Rectangle
     {
         private Point2D p1;
         private Point2D p2;

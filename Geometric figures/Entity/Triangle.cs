@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Geometric_figures.Entity
 {
-    internal class Triangle
+    public class Triangle
     {
         private Point2D p1;
         private Point2D p2;
