@@ -84,7 +84,7 @@ namespace Geometric_figures.ViewModels
         }
 
 
-        void DrawRectangle(Entity.Rectangle _rectangle)
+        public void DrawRectangle(Entity.Rectangle _rectangle)
         {
             _rectangle.ShiftX(ShiftingX - 5);
             Points.Add(new PolyLineObserver(_rectangle.GetPoint1(), _rectangle.GetPoint2()));

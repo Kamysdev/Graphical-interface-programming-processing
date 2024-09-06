@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800" Height="450"
         x:Class="Pokemon_Clicker.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -13,6 +14,38 @@
 		<StyleInclude Source="/Styles/AppStyle.axaml"/>
 	</Window.Styles>
     
+    <Grid ColumnDefinitions=".6* * .6*" ShowGridLines="False">
+        <Grid RowDefinitions=".075* * 60">
+            <TextBlock VerticalAlignment="Bottom" Padding="20 0 0 0" Text="List of enemies:"></TextBlock>
+            <ListBox Grid.Row="1" Margin="20 10 20 0"/>
+            <Button Grid.Row="2" Content="Save" HorizontalAlignment="Right" Margin="0 0 30 0"/>
+            <Button Grid.Row="2" Content="Load" Margin="30 0 0 0"/>
+        </Grid>
+
+		<Grid Grid.Column="1" ColumnDefinitions="* *" RowDefinitions="* * * * 60" ShowGridLines="False">
+
+			<TextBlock Grid.Row="2" Text="Base life:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
+            <TextBox Grid.Row="2" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0"/>
+
+			<TextBlock Grid.Row="3" Text="Life modifier:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
+            <TextBox Grid.Row="3" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0"/>
+
+			<TextBlock Grid.Column="1" Text="Icon name:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
+            <TextBox Grid.Column="1" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="Enemy name:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="Base gold:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0"/>
+
+			<TextBlock Grid.Column="1" Grid.Row="3" Text="Gold modifier:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0"/>
+
+            <Button Classes="Confirm" Grid.Column="1" Grid.Row="4" Content="Add" HorizontalAlignment="Left" Margin="10 0 0 0"/>
+            <Button Classes="Cancel" Grid.Column="1" Grid.Row="4" Content="Remove" Margin="0 0 10 0"/>
+        </Grid>
+    </Grid>
 	
 	
 </Window>
