@@ -32,14 +32,6 @@ namespace Geometric_figures.ViewModels
         }
         private double _shiftingY = 5;
 
-        public string? CoordinateTitle 
-        {
-            get => _coordinateTitle;
-            set { _coordinateTitle = value; OnPropertyChanged(nameof(CoordinateTitle)); }
-        }
-        private string? _coordinateTitle { get; set; }
-        // Что с текстом хз, лень чинить
-
         public MainWindowViewModel()
         {
 
@@ -95,10 +87,10 @@ namespace Geometric_figures.ViewModels
         void DrawRectangle(Entity.Rectangle _rectangle)
         {
             _rectangle.ShiftX(ShiftingX - 5);
-            Points.Add(new PolyLineObserver(Rectangle.GetPoint1(), Rectangle.GetPoint2()));
-            Points.Add(new PolyLineObserver(Rectangle.GetPoint1(), Rectangle.GetPoint3()));
-            Points.Add(new PolyLineObserver(Rectangle.GetPoint3(), Rectangle.GetPoint4()));
-            Points.Add(new PolyLineObserver(Rectangle.GetPoint4(), Rectangle.GetPoint2()));
+            Points.Add(new PolyLineObserver(_rectangle.GetPoint1(), _rectangle.GetPoint2()));
+            Points.Add(new PolyLineObserver(_rectangle.GetPoint1(), _rectangle.GetPoint3()));
+            Points.Add(new PolyLineObserver(_rectangle.GetPoint3(), _rectangle.GetPoint4()));
+            Points.Add(new PolyLineObserver(_rectangle.GetPoint4(), _rectangle.GetPoint2()));
         }
     }
 
