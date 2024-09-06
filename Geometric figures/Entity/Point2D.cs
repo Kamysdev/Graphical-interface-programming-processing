@@ -17,6 +17,12 @@ namespace Geometric_figures.Entity
             this.y = y;
         }
 
+        public Point2D(Point2D other)
+        {
+            this.x = other.x;
+            this.y = other.y;
+        }
+
         public double GetX() { return x; }
         public double GetY() { return y; }
 

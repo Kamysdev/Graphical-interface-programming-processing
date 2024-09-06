@@ -12,12 +12,37 @@
 	<Window.Styles>
 		<StyleInclude Source="/Styles/AppStyle.axaml"/>
 	</Window.Styles>
-	
-	<Panel>
-		<StackPanel Orientation="Horizontal">
-			<Button/>
-			<Button/>
-			<Button/>
-		</StackPanel>
-	</Panel>
+
+	<Grid ColumnDefinitions="* *" RowDefinitions=".5* .5* * *">
+		<Grid ColumnDefinitions="* * *">
+			<Button Grid.Column="0" HorizontalAlignment="Center" Content="Прямоугольник" Command="{Binding Button_DrawRectangle}"/>
+			<Button Grid.Column="1" HorizontalAlignment="Center" Content="Треугольник" Command="{Binding Button_DrawTriangle}"/>
+			<Button Grid.Column="2" HorizontalAlignment="Center" Content="Квадрат" Command="{Binding Button_DrawSquare}"/>
+		</Grid>
+		<Grid Grid.Row="1" ColumnDefinitions="0.4* *" RowDefinitions="* *">
+			<TextBlock Text="Сдвиг по X:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+			<TextBlock Grid.Row="1" Text="Сдвиг по Y:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+			<Slider Grid.Column="1" Padding="20 0 20 0" VerticalAlignment="Center" Value="{Binding ShiftingX}" Maximum="10"/>
+			<Slider Grid.Row="1" Grid.Column="1" Padding="20 0 20 0" VerticalAlignment="Center" Value="{Binding ShiftingY}" Maximum="10"/>
+		</Grid>
+
+		<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding CoordinateTitle}" HorizontalAlignment="Left"/>
+		
+		<ItemsControl Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding Points}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Canvas Background="White" Margin="20"/>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Line 
+						StartPoint="{Binding StartPoint}"
+						EndPoint="{Binding EndPoint}"
+						Stroke="Red" StrokeThickness="2"/>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+		
+	</Grid>
 </Window>
