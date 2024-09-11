@@ -10,7 +10,7 @@ namespace Pokemon_Clicker.Enemy
     public class CEnemyTemplate
     {
         [JsonInclude]
-        private string? name;
+        private string? name { get; set; }
         [JsonInclude]
         private string? iconName;
 
@@ -36,7 +36,7 @@ namespace Pokemon_Clicker.Enemy
             this.baseGold = baseGold;
             this.goldModifier = goldModifier;
             this.spawnChance = spawnChance;
-        }
+        } 
 
         public string GetName() { return name; }
         public string GetIcon() { return iconName; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,11 @@ namespace Pokemon_Clicker.Enemy
 {
     public class CEnemyTemplateList
     {
-        private List<CEnemyTemplate> enemies { get; set; }
+        public ObservableCollection<CEnemyTemplate> enemies { get; set; }
 
         public CEnemyTemplateList()
         {
-            enemies = new List<CEnemyTemplate>();
+            enemies = [];
         }
 
         public void AddEnemy(CEnemyTemplate enemy) { enemies.Add(enemy); }
