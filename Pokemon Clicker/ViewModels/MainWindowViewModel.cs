@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -83,6 +84,11 @@ namespace Pokemon_Clicker.ViewModels
         public void Button__RemoveEnemy()
         {
             EnemyList.DeleteEnemyByName(SelectedEnemy.GetName());
+        }
+
+        public void Button_SaveEnemy()
+        {
+            EnemyList.SaveToJson("");
         }
 
         protected virtual void SelectedEnemyFieldUpdater()

@@ -27,17 +27,21 @@
                         </StackPanel>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
+
+                <ListBox.Resources>
+                    <vm:TextConverter x:Key="NameConverter"></vm:TextConverter>
+                </ListBox.Resources>
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <TextBlock Text="{Binding Name}"></TextBlock>
-                            <TextBlock Text="Template"></TextBlock>
+                            <TextBlock Text="{Binding ., Converter={StaticResource NameConverter}}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Grid.Row="2" Content="Save" HorizontalAlignment="Right" Margin="0 0 30 0"/>
-            <Button Grid.Row="2" Content="Load" Margin="30 0 0 0"/>
+            <Button Grid.Row="2" Content="Save" HorizontalAlignment="Right" Margin="0 0 30 0" Command="{Binding EnemyList.SaveToJson}" CommandParameter=""/>
+            <Button Grid.Row="2" Content="Load" Margin="30 0 0 0" Command="{Binding EnemyList.LoadFromJson}" CommandParameter=""/>
         </Grid>
 
 		<Grid Grid.Column="1" ColumnDefinitions="* *" RowDefinitions="* * * * 60" ShowGridLines="False">

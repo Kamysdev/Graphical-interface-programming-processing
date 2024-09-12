@@ -73,15 +73,23 @@ namespace Pokemon_Clicker.Enemy
         {
             JsonDocument SavedJson = JsonDocument.Parse(File.ReadAllText("CEnemyTemplateList.json"));
 
+            enemies.Clear();
+
             foreach (JsonElement element in SavedJson.RootElement.EnumerateArray())
             {
-                enemies.Add(new CEnemyTemplate(element.GetProperty("name").GetString(), 
-                    element.GetProperty("iconName").GetString(), 
-                    element.GetProperty("baseLife").GetInt32(),
-                    element.GetProperty("lifeModifier").GetDouble(),
-                    element.GetProperty("baseGold").GetInt32(),
-                    element.GetProperty("goldModifier").GetDouble(),
-                    element.GetProperty("spawnChance").GetDouble()));
+                try
+                {
+                    enemies.Add(new CEnemyTemplate(element.GetProperty("Name").GetString(),
+                        element.GetProperty("iconName").GetString(),
+                        element.GetProperty("baseLife").GetInt32(),
+                        element.GetProperty("lifeModifier").GetDouble(),
+                        element.GetProperty("baseGold").GetInt32(),
+                        element.GetProperty("goldModifier").GetDouble(),
+                        element.GetProperty("spawnChance").GetDouble()));
+                }
+                catch
+                {
+                }
             }
         }
 
