@@ -44,7 +44,13 @@ namespace Pokemon_Clicker.Enemy
             {
                 if (enemies[i].GetName() == name)
                 {
-                    enemies.Remove(enemies[i]);
+                    try
+                    {
+                        enemies.Remove(enemies[i]);
+                    }
+                    catch (Exception ex) 
+                    {
+                    }
                 }
             }
         }

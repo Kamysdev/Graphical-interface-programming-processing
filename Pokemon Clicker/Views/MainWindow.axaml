@@ -10,17 +10,17 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="Pokemon_Clicker">
 
-	<Window.Styles>
+    <Window.Styles>
 		<StyleInclude Source="/Styles/AppStyle.axaml"/>
 	</Window.Styles>
-    
+
     <Grid ColumnDefinitions=".6* * .6*" ShowGridLines="False">
         <Grid RowDefinitions=".075* * 60">
 			<TextBlock VerticalAlignment="Bottom" Padding="20 0 0 0" Text="List of enemies:"></TextBlock>
-
 			<ListBox Grid.Row="1" 
                      Margin="20 10 20 0" 
-                     ItemsSource="{Binding EnemyList.enemies}">
+                     ItemsSource="{Binding EnemyList.enemies}"
+                     SelectedItem="{Binding SelectedEnemy}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel>
@@ -36,15 +36,11 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
             <Button Grid.Row="2" Content="Save" HorizontalAlignment="Right" Margin="0 0 30 0"/>
             <Button Grid.Row="2" Content="Load" Margin="30 0 0 0"/>
         </Grid>
 
 		<Grid Grid.Column="1" ColumnDefinitions="* *" RowDefinitions="* * * * 60" ShowGridLines="False">
-                
-           
-            
 			<TextBlock Grid.Row="2" Text="Base life:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
             <TextBox Grid.Row="2" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0" Text="{Binding BaseLife, Mode=TwoWay}"/>
 
@@ -64,9 +60,7 @@
             <TextBox Grid.Column="1" Grid.Row="3" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0" Text="{Binding GoldModifier, Mode=TwoWay}"/>
 
             <Button Classes="Confirm" Grid.Column="1" Grid.Row="4" Content="Add" HorizontalAlignment="Left" Margin="10 0 0 0" Command="{Binding Button__AddEnemy}"/>
-            <Button Classes="Cancel" Grid.Column="1" Grid.Row="4" Content="Remove" Margin="0 0 10 0"/>
+            <Button Classes="Cancel" Grid.Column="1" Grid.Row="4" Content="Remove" Margin="0 0 10 0" Command="{Binding Button__RemoveEnemy}"/>
         </Grid>
     </Grid>
-	
-	
 </Window>

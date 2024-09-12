@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Pokemon_Clicker.Enemy;
 
 namespace Pokemon_Clicker.ViewModels
@@ -15,21 +17,57 @@ namespace Pokemon_Clicker.ViewModels
             set => SetProperty(ref _enemyList, value);
         }
 
-        public CEnemyTemplate SelectedEnemy { get; set; }
+        private CEnemyTemplate _selectedEnemy;
+        public CEnemyTemplate SelectedEnemy
+        {
+            get => _selectedEnemy;
+            set 
+            { 
+                SetProperty(ref _selectedEnemy, value);
+                SelectedEnemyFieldUpdater();
+            }
+        }
 
-        public string IconName { get; set; } 
-        public string EnemyName { get; set; }
-        public string BaseLife { get; set; }
-        public string LifeModifier { get; set; }
-        public string BaseGold { get; set; }
-        public string GoldModifier { get; set; }
+        private string _propertyString;
+        public string IconName
+        {
+            get => _propertyString;
+            set => SetProperty(ref _propertyString, value);
+        }
+        public string EnemyName
+        {
+            get => _propertyString;
+            set => SetProperty(ref _propertyString, value);
+        }
+        public string BaseLife
+        {
+            get => _propertyString;
+            set => SetProperty(ref _propertyString, value);
+        }
+        public string LifeModifier
+        {
+            get => _propertyString;
+            set => SetProperty(ref _propertyString, value);
+        }
+        public string BaseGold
+        {
+            get => _propertyString;
+            set => SetProperty(ref _propertyString, value);
+        }
+        public string GoldModifier
+        {
+            get => _propertyString;
+            set => SetProperty(ref _propertyString, value);
+        }
 
         public MainWindowViewModel()
         {
             EnemyList = new CEnemyTemplateList();
 
+
+
             EnemyList.AddEnemy(new CEnemyTemplate("adsda", "a", 1, 1, 1, 1, 1));
-            EnemyList.AddEnemy(new CEnemyTemplate("adsda", "a", 1, 1, 1, 1, 1));
+            EnemyList.AddEnemy(new CEnemyTemplate("adsda1", "a", 1, 1, 1, 1, 1));
         }
 
         public void Button__AddEnemy()
@@ -41,6 +79,28 @@ namespace Pokemon_Clicker.ViewModels
             }
             catch
             {
+            }
+        }
+
+        public void Button__RemoveEnemy()
+        {
+            EnemyList.DeleteEnemyByName(EnemyName);
+        }
+
+        protected virtual void SelectedEnemyFieldUpdater()
+        {
+            try
+            {
+                IconName = SelectedEnemy.GetIcon();
+                EnemyName = SelectedEnemy.GetName();
+                BaseLife = SelectedEnemy.GetBaseLife().ToString();
+                LifeModifier = SelectedEnemy.GetLifeModifier().ToString();
+                BaseGold = SelectedEnemy.GetGold().ToString();
+                GoldModifier = SelectedEnemy.GetGoldModifier().ToString();
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }
