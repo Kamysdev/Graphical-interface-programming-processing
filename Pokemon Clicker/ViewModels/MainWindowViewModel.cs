@@ -6,6 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Pokemon_Clicker.Enemy;
+using Pokemon_Clicker.Visibility;
 
 namespace Pokemon_Clicker.ViewModels
 {
@@ -29,44 +30,50 @@ namespace Pokemon_Clicker.ViewModels
             }
         }
 
-        private string _propertyString;
+        private string _iconName;
         public string IconName
         {
-            get => _propertyString;
-            set => SetProperty(ref _propertyString, value);
+            get => _iconName;
+            set => SetProperty(ref _iconName, value);
         }
+
+        private string _enemyName;
         public string EnemyName
         {
-            get => _propertyString;
-            set => SetProperty(ref _propertyString, value);
+            get => _enemyName;
+            set => SetProperty(ref _enemyName, value);
         }
+        private string _baseLife;
         public string BaseLife
         {
-            get => _propertyString;
-            set => SetProperty(ref _propertyString, value);
+            get => _baseLife;
+            set => SetProperty(ref _baseLife, value);
         }
+        private string _lifeModifier;
         public string LifeModifier
         {
-            get => _propertyString;
-            set => SetProperty(ref _propertyString, value);
+            get => _lifeModifier;
+            set => SetProperty(ref _lifeModifier, value);
         }
+        private string _baseGold;
         public string BaseGold
         {
-            get => _propertyString;
-            set => SetProperty(ref _propertyString, value);
+            get => _baseGold;
+            set => SetProperty(ref _baseGold, value);
         }
+        private string _goldModifier;
         public string GoldModifier
         {
-            get => _propertyString;
-            set => SetProperty(ref _propertyString, value);
+            get => _goldModifier;
+            set => SetProperty(ref _goldModifier, value);
         }
+
+        public CIcon IcIcon { get; set; } = new CIcon(100, 100, "test.png");
 
         public MainWindowViewModel()
         {
             EnemyList = new CEnemyTemplateList();
 
-            EnemyList.AddEnemy(new CEnemyTemplate("adsda", "a", 1, 2, 3, 14, 100));
-            EnemyList.AddEnemy(new CEnemyTemplate("adsda1", "a", 1, 15, 10, 51, 1));
         }
 
         public void Button__AddEnemy()
@@ -83,12 +90,13 @@ namespace Pokemon_Clicker.ViewModels
 
         public void Button__RemoveEnemy()
         {
-            EnemyList.DeleteEnemyByName(SelectedEnemy.GetName());
-        }
-
-        public void Button_SaveEnemy()
-        {
-            EnemyList.SaveToJson("");
+            try
+            {
+                EnemyList.DeleteEnemyByName(SelectedEnemy.GetName());
+            }
+            catch
+            {
+            }
         }
 
         protected virtual void SelectedEnemyFieldUpdater()
