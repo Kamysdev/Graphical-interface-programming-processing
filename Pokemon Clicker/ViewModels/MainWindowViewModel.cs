@@ -22,7 +22,7 @@ namespace Pokemon_Clicker.ViewModels
         {
             get => _selectedEnemy;
             set 
-            { 
+            {
                 SetProperty(ref _selectedEnemy, value);
                 SelectedEnemyFieldUpdater();
             }
@@ -64,10 +64,8 @@ namespace Pokemon_Clicker.ViewModels
         {
             EnemyList = new CEnemyTemplateList();
 
-
-
-            EnemyList.AddEnemy(new CEnemyTemplate("adsda", "a", 1, 1, 1, 1, 1));
-            EnemyList.AddEnemy(new CEnemyTemplate("adsda1", "a", 1, 1, 1, 1, 1));
+            EnemyList.AddEnemy(new CEnemyTemplate("adsda", "a", 1, 2, 3, 14, 100));
+            EnemyList.AddEnemy(new CEnemyTemplate("adsda1", "a", 1, 15, 10, 51, 1));
         }
 
         public void Button__AddEnemy()
@@ -84,7 +82,7 @@ namespace Pokemon_Clicker.ViewModels
 
         public void Button__RemoveEnemy()
         {
-            EnemyList.DeleteEnemyByName(EnemyName);
+            EnemyList.DeleteEnemyByName(SelectedEnemy.GetName());
         }
 
         protected virtual void SelectedEnemyFieldUpdater()
@@ -100,7 +98,7 @@ namespace Pokemon_Clicker.ViewModels
             }
             catch (Exception ex)
             {
-
+                SelectedEnemy = EnemyList.GetEnemyByIndex(0);
             }
         }
     }
