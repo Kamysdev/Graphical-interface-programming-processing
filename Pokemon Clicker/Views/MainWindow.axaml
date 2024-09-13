@@ -29,7 +29,7 @@
                 </ListBox.ItemsPanel>
 
                 <ListBox.Resources>
-                    <vm:TextConverter x:Key="NameConverter"></vm:TextConverter>
+                    <vm:TextConverter x:Key="NameConverter"/>
                 </ListBox.Resources>
 
                 <ListBox.ItemTemplate>
@@ -45,7 +45,9 @@
         </Grid>
 
 		<Grid Grid.Column="1" ColumnDefinitions="* *" RowDefinitions="* * * * 60" ShowGridLines="False">
-			<TextBlock Grid.Row="2" Text="Base life:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
+            <Image/>
+
+            <TextBlock Grid.Row="2" Text="Base life:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
             <TextBox Grid.Row="2" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0" Text="{Binding BaseLife, Mode=TwoWay}"/>
 
 			<TextBlock Grid.Row="3" Text="Life modifier:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
@@ -66,5 +68,27 @@
             <Button Classes="Confirm" Grid.Column="1" Grid.Row="4" Content="Add" HorizontalAlignment="Left" Margin="10 0 0 0" Command="{Binding Button__AddEnemy}"/>
             <Button Classes="Cancel" Grid.Column="1" Grid.Row="4" Content="Remove" Margin="0 0 10 0" Command="{Binding Button__RemoveEnemy}"/>
         </Grid>
+
+		<ListBox Grid.Column="2" 
+				 ItemsSource="{Binding IconList.icons}">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel/>
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+
+			<ListBox.Resources>
+				<vm:IconConverter x:Key="EnemyIconConverter"/>
+			</ListBox.Resources>
+
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Image Source="{Binding ., Converter={StaticResource EnemyIconConverter}}"></Image>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+			
+		</ListBox>
     </Grid>
 </Window>

@@ -92,7 +92,5 @@ namespace Pokemon_Clicker.Enemy
                 }
             }
         }
-
-
     }
 }

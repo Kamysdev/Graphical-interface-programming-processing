@@ -2,16 +2,19 @@
 using System;
 using Avalonia.Data.Converters;
 using Pokemon_Clicker.Enemy;
+using Pokemon_Clicker.Visibility;
+using Avalonia.Media;
+using Avalonia.Media.Imaging;
 
 namespace Pokemon_Clicker.ViewModels
 {
-    internal class TextConverter : IValueConverter
+    internal class IconConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is CEnemyTemplate entity)
+            if (value is CIcon icon)
             {
-                return entity.GetName();
+                return new Bitmap(icon.GetPath());
             }
 
             return Avalonia.Data.BindingNotification.UnsetValue;
