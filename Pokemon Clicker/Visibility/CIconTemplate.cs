@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +20,15 @@ namespace Pokemon_Clicker.Visibility
 
         public void LoadIcons(string path)
         {
-            icons.Add(new CIcon(100, 100, "test.png"));
+            string folderpath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + path;
+            string filter = "*.png";
+
+            string[] files = Directory.GetFiles(folderpath, filter);
+
+            foreach (var file in files)
+            {
+                icons.Add(new CIcon(100, 100, file));
+            }
         }
 
         public void AddIcon(CIcon icon)

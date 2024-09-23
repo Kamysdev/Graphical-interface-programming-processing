@@ -75,15 +75,24 @@ namespace Pokemon_Clicker.ViewModels
             set => SetProperty(ref _iconList, value);
         }
 
+        private CIcon _selectedIcon;
+
+        public CIcon SelectedIcon
+        {
+            get => _selectedIcon;
+            set
+            {
+                SetProperty(ref _selectedIcon, value);
+                IconName = SelectedIcon.GetName();
+            }
+        }
+
         public MainWindowViewModel()
         {
             EnemyList = new CEnemyTemplateList();
             IconList = new CIconTemplate();
 
-            IconList.AddIcon(new CIcon(100, 100, "test.png"));
-            IconList.AddIcon(new CIcon(100, 100, "test.png"));
-            IconList.AddIcon(new CIcon(100, 100, "test.png"));
-            IconList.AddIcon(new CIcon(100, 100, "test.png"));
+            IconList.LoadIcons("/icons/Monsters/");
         }
 
         public void Button__AddEnemy()

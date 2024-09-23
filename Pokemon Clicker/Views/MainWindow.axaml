@@ -54,7 +54,7 @@
             <TextBox Grid.Row="3" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0" Text="{Binding LifeModifier, Mode=TwoWay}"/>
 
 			<TextBlock Grid.Column="1" Text="Icon name:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
-            <TextBox Grid.Column="1" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0" Text="{Binding IconName, Mode=TwoWay}"/>
+            <TextBox Grid.Column="1" Height="30" IsReadOnly="True" VerticalAlignment="Bottom" Margin="5 0 5 0" Text="{Binding IconName, Mode=TwoWay}"/>
 
             <TextBlock Grid.Column="1" Grid.Row="1" Text="Enemy name:" VerticalAlignment="Bottom" Margin="5 0 0 35"/>
             <TextBox Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Bottom" Margin="5 0 5 0" Text="{Binding EnemyName, Mode=TwoWay}"/>
@@ -70,7 +70,8 @@
         </Grid>
 
 		<ListBox Grid.Column="2" 
-				 ItemsSource="{Binding IconList.icons}">
+				 ItemsSource="{Binding IconList.icons}"
+                 SelectedItem="{Binding SelectedIcon}">
 			<ListBox.ItemsPanel>
 				<ItemsPanelTemplate>
 					<StackPanel/>

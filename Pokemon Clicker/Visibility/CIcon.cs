@@ -5,6 +5,7 @@ using Avalonia.Media;
 using System.Xml.Linq;
 using System;
 using Avalonia.Media.Imaging;
+using System.IO;
 
 namespace Pokemon_Clicker.Visibility
 {
@@ -20,7 +21,8 @@ namespace Pokemon_Clicker.Visibility
             this.iconWidth = iconWidth;
             this.iconHeight = iconHeight;
             this.iconPath = iconPath;
-            Name = iconPath.Substring(0, iconPath.IndexOf("."));
+
+            Name = System.IO.Path.GetFileNameWithoutExtension(iconPath);
         }
 
         public string GetPath()
