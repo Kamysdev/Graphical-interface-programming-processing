@@ -141,5 +141,44 @@ namespace Clicker_game.Data
             number = resultList.ToArray();
         }
 
+        public void Divide(BigNumber bnum)
+        {
+            long divisor = ConvertArrayToNumber(bnum.number);
+            List<int> result = new List<int>();
+            long remainder = 0;
+
+            foreach (int part in number)
+            {
+                // Переносим остаток из предыдущего шага
+                remainder = remainder * 1000 + part;
+
+                // Вычисляем частное для текущей части
+                int quotient = (int)(remainder / divisor);
+
+                // Вычисляем новый остаток
+                remainder = remainder % divisor;
+
+                // Добавляем частное в результат
+                result.Add(quotient);
+            }
+
+            // Убираем начальные нули
+            while (result.Count > 1 && result[0] == 0)
+            {
+                result.RemoveAt(0);
+            }
+
+            number = result.ToArray();
+        }
+
+        private static long ConvertArrayToNumber(int[] num)
+        {
+            long result = 0;
+            foreach (int part in num)
+            {
+                result = result * 1000 + part;
+            }
+            return result;
+        }
     }
 }
