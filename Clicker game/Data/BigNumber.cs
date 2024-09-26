@@ -104,6 +104,42 @@ namespace Clicker_game.Data
             number = result.ToArray();
         }
 
+        public void Multiply(BigNumber bnum)
+        {
+            // Для хранения результатов умножения
+            int[] result = new int[number.Length + bnum.number.Length];
+
+            // Умножаем каждый элемент num1 на каждый элемент num2
+            for (int i = number.Length - 1; i >= 0; i--)
+            {
+                for (int j = bnum.number.Length - 1; j >= 0; j--)
+                {
+                    // Получаем произведение текущих разрядов
+                    int product = number[i] * bnum.number[j];
+
+                    // Находим позицию для добавления в массив результата
+                    int posLow = i + j + 1; // Младший разряд
+                    int posHigh = i + j;    // Старший разряд (для переноса)
+
+                    // Добавляем произведение к текущему значению на позиции
+                    result[posLow] += product;
+
+                    // Обрабатываем перенос, если значение больше 999
+                    result[posHigh] += result[posLow] / 1000;
+                    result[posLow] %= 1000;
+                }
+            }
+
+            // Убираем ведущие нули
+            List<int> resultList = new List<int>(result);
+            while (resultList.Count > 1 && resultList[0] == 0)
+            {
+                resultList.RemoveAt(0);
+            }
+
+            // Преобразуем список обратно в массив и возвращаем
+            number = resultList.ToArray();
+        }
 
     }
 }
