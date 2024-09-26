@@ -7,7 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab1", "Lab1", "{CDA38B81-8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geometric figures", "Geometric figures\Geometric figures.csproj", "{EFE5CA16-F77C-4871-B4E1-A363CF0F3EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokemon Clicker", "Pokemon Clicker\Pokemon Clicker.csproj", "{D85CD71D-C816-4D8C-8414-A3DD1ECCE6B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pokemon Clicker", "Pokemon Clicker\Pokemon Clicker.csproj", "{D85CD71D-C816-4D8C-8414-A3DD1ECCE6B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab2", "Lab2", "{E3A0CC07-8AD7-4E50-B5C8-09618D660171}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clicker game", "Clicker game\Clicker game.csproj", "{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{D85CD71D-C816-4D8C-8414-A3DD1ECCE6B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D85CD71D-C816-4D8C-8414-A3DD1ECCE6B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D85CD71D-C816-4D8C-8414-A3DD1ECCE6B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{EFE5CA16-F77C-4871-B4E1-A363CF0F3EBA} = {CDA38B81-8B33-46B0-9E01-A56DA7BDFC68}
 		{D85CD71D-C816-4D8C-8414-A3DD1ECCE6B4} = {CDA38B81-8B33-46B0-9E01-A56DA7BDFC68}
+		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75} = {E3A0CC07-8AD7-4E50-B5C8-09618D660171}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3785E147-D0BC-46A9-9974-FCD2916CA444}
