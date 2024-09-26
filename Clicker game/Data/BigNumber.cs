@@ -150,42 +150,58 @@ namespace Clicker_game.Data
 
         public void Divide(BigNumber bnum)
         {
-            long divisor = ConvertArrayToNumber(bnum.number);
+            long divisorValue = ConvertToLong(bnum.number);
+
+            // Проверка на деление на ноль
+            if (divisorValue == 0)
+                throw new DivideByZeroException("Cannot divide by zero.");
+
             List<int> result = new List<int>();
             long remainder = 0;
 
             foreach (int part in number)
             {
                 // Переносим остаток из предыдущего шага
-                remainder = remainder * 1000 + part;
+                remainder = remainder * Base + part;
 
                 // Вычисляем частное для текущей части
-                int quotient = (int)(remainder / divisor);
+                int quotient = (int)(remainder / divisorValue);
 
                 // Вычисляем новый остаток
-                remainder = remainder % divisor;
+                remainder = remainder % divisorValue;
 
                 // Добавляем частное в результат
                 result.Add(quotient);
             }
 
             // Убираем начальные нули
-            while (result.Count > 1 && result[0] == 0)
+            while (result.Count > 1 && result[^1] == 0)
             {
-                result.RemoveAt(0);
+                result.RemoveAt(result.Count - 1);
             }
 
+            // Обратный порядок результата (т.к. мы добавляли с конца)
+            result.Reverse();
             number = result.ToArray();
         }
 
-        private static long ConvertArrayToNumber(int[] num)
+        private static long ConvertToLong(int[] num)
         {
             long result = 0;
             foreach (int part in num)
             {
-                result = result * 1000 + part;
+                result = result * Base + part;
+
+                // Проверка на переполнение
+                if (result < 0)
+                    throw new OverflowException("Number is too large.");
             }
             return result;
+        }
+
+        public override string ToString()
+        {
+            return string.Join("", number.AsEnumerable().Reverse());
         }
     }
 }

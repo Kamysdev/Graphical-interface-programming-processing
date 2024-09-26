@@ -40,5 +40,17 @@ namespace Clicker_game.Tests
 
             Assert.AreEqual(expected, num1.GetStringNumber());
         }
+
+        [TestMethod]
+        public void BigNumbers_Divide_8884499and13_683423returned()
+        {
+            BigNumber num1 = new BigNumber("8884499");
+            BigNumber num2 = new BigNumber("13");
+            string expected = "683423";
+
+            num1.Divide(num2);
+
+            Assert.AreEqual(expected, num1.GetStringNumber());
+        }
     }
 }
