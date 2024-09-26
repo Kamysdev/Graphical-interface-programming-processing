@@ -21,7 +21,7 @@ namespace Clicker_game.Data
 
         public string GetStringNumber()
         {
-            return string.Concat(Array.ConvertAll(number, num => num.ToString("D3")));
+            return string.Join("", number);
         }
 
         public BigNumber GetBigNumber()
@@ -59,11 +59,17 @@ namespace Clicker_game.Data
                 result.Insert(0, carry);
             }
 
+            // Убираем ведущие нули в результате
+            while (result.Count > 1 && result[0] == 0)
+            {
+                result.RemoveAt(0);
+            }
+
             // Преобразуем список обратно в массив и возвращаем
             number = result.ToArray();
         }
 
-        public void Substring(BigNumber bnum)
+        public void Subtract(BigNumber bnum)
         {
             List<int> result = new List<int>();
 
@@ -103,6 +109,7 @@ namespace Clicker_game.Data
             // Преобразуем список обратно в массив и возвращаем
             number = result.ToArray();
         }
+
 
         public void Multiply(BigNumber bnum)
         {

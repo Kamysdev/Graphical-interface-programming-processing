@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab2", "Lab2", "{E3A0CC07-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clicker game", "Clicker game\Clicker game.csproj", "{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clicker game.Tests", "Clicker game.Tests\Clicker game.Tests.csproj", "{C0F7FF24-4023-4BC8-9B9F-AF083AFA9466}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8FCD110-15BE-42B3-ABD0-13E3540A0B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F7FF24-4023-4BC8-9B9F-AF083AFA9466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F7FF24-4023-4BC8-9B9F-AF083AFA9466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F7FF24-4023-4BC8-9B9F-AF083AFA9466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F7FF24-4023-4BC8-9B9F-AF083AFA9466}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
