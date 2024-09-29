@@ -31,5 +31,16 @@ namespace Clicker_game.User
             this.upgradeCostModifier = upgradeCostModifier;
         }
 
+        public BigNumber GetGold() { return gold; }
+
+        public BigNumber GetDamage() { return damage; }
+
+        public double GetDamageModifier() { return damageModifier; }
+
+        public bool GainGold(BigNumber gold)
+        {
+            this.gold.Add(gold);
+            return true;
+        }
     }
 }
