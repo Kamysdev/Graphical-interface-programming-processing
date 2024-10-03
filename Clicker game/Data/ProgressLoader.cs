@@ -9,9 +9,9 @@ namespace Clicker_game.Data
     {
         public static void LoadPlayerData(ref CPlayer loadablePlayer)
         {
-            var SavedPlayerJson = JsonDocument.Parse(File.ReadAllText("Progress.json"));
+            var savedPlayerJson = JsonDocument.Parse(File.ReadAllText("Progress.json"));
 
-            foreach (var element in SavedPlayerJson.RootElement.EnumerateArray())
+            foreach (var element in savedPlayerJson.RootElement.EnumerateArray())
             {
                 loadablePlayer = new CPlayer(new BigNumber(element.GetProperty("gold").ToString()),
                     new BigNumber(element.GetProperty("damage").ToString()),
@@ -21,36 +21,31 @@ namespace Clicker_game.Data
                     element.GetProperty("lvl").GetInt32());
             }
         }
-    }
 
-    public class CPlayerJson
+        public static void SavePlayerData(CPlayer savablePlayer)
+        {
+            File.WriteAllText("", JsonSerializer.Serialize(savablePlayer));
+        }
+    }
+    
+    public class CPlayerJson(CPlayer player)
     {
         [JsonInclude] 
-        private readonly string gold;
+        private readonly string gold = player.GetGold().ToString();
 
         [JsonInclude] 
-        private readonly string damage;
+        private readonly string damage = player.GetDamage().ToString();
 
         [JsonInclude]
-        private readonly double damageModifier;
+        private readonly double damageModifier = player.GetDamageModifier();
 
         [JsonInclude]
-        private readonly string upgradeCost;
+        private readonly string upgradeCost = player.GetUpgradeCost().ToString();
 
         [JsonInclude]
-        private readonly double upgradeCostModifier;
+        private readonly double upgradeCostModifier = player.GetUpgradeCostModifier();
 
         [JsonInclude]
-        private readonly int lvl;
-
-        public CPlayerJson(CPlayer player)
-        {
-            gold = player.GetGold().ToString();
-            damage = player.GetDamage().ToString();
-            damageModifier = player.GetDamageModifier();
-            upgradeCost = player.GetUpgradeCost().ToString();
-            upgradeCostModifier = player.GetUpgradeCostModifier();
-            lvl = player.GetLvl();
-        }
+        private readonly int lvl = player.GetLvl();
     }
 }
