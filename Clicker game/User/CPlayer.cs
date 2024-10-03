@@ -33,14 +33,31 @@ namespace Clicker_game.User
 
         public BigNumber GetGold() { return gold; }
 
+        // Сказать про косяк
         public BigNumber GetDamage() { return damage; }
 
         public double GetDamageModifier() { return damageModifier; }
+
+        public BigNumber UpgradeCost() { return upgradeCost; }
 
         public bool GainGold(BigNumber gold)
         {
             this.gold.Add(gold);
             return true;
+        }
+
+        public bool Upgrade()
+        {
+            if (Convert.ToInt32(gold.GetStringNumber()) 
+                > Convert.ToInt32(upgradeCost.GetStringNumber()))
+            {
+                upgradeCost.Multiply(new BigNumber(Convert.ToString(upgradeCostModifier)));
+                damage.Multiply(new BigNumber(Convert.ToString(damageModifier)));
+
+                return true;
+            }
+
+            return false;
         }
     }
 }
