@@ -7,6 +7,8 @@
         private BigNumber gold;
         private string iconPath;
 
+        private double spawnChance;
+
         public CEnemy(string name, BigNumber hitPoints, BigNumber gold, string iconPath)
         {
             this.name = name;
@@ -33,6 +35,16 @@
         public string GetIconPath()
         {
             return iconPath;
+        }
+
+        public void SetSpawnChance(double SpawnChance)
+        {
+            spawnChance = SpawnChance;
+        }
+
+        public double GetSpawnChance()
+        {
+            return spawnChance;
         }
     }
 }

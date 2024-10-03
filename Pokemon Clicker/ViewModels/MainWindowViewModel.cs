@@ -12,8 +12,8 @@ namespace Pokemon_Clicker.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
-        private CEnemyTemplateList _enemyList;
-        public CEnemyTemplateList EnemyList
+        private CEnemyListTemplate _enemyList;
+        public CEnemyListTemplate EnemyList
         {
             get => _enemyList;
             set => SetProperty(ref _enemyList, value);
@@ -89,7 +89,7 @@ namespace Pokemon_Clicker.ViewModels
 
         public MainWindowViewModel()
         {
-            EnemyList = new CEnemyTemplateList();
+            EnemyList = new CEnemyListTemplate();
             IconList = new CIconTemplate();
 
             IconList.LoadIcons("/icons/Monsters/");

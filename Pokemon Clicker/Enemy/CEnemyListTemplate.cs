@@ -9,11 +9,11 @@ using System.Text.Json;
 
 namespace Pokemon_Clicker.Enemy
 {
-    public class CEnemyTemplateList
+    public class CEnemyListTemplate
     {
         public ObservableCollection<CEnemyTemplate> enemies { get; set; }
 
-        public CEnemyTemplateList()
+        public CEnemyListTemplate()
         {
             enemies = [];
         }
