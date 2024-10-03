@@ -48,6 +48,9 @@ namespace Clicker_game.Data
             gold = player.GetGold().ToString();
             damage = player.GetDamage().ToString();
             damageModifier = player.GetDamageModifier();
+            upgradeCost = player.GetUpgradeCost().ToString();
+            upgradeCostModifier = player.GetUpgradeCostModifier();
+            lvl = player.GetLvl();
         }
     }
 }

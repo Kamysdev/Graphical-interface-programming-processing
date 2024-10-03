@@ -40,7 +40,11 @@ namespace Clicker_game.User
 
         public double GetDamageModifier() { return damageModifier; }
 
-        public BigNumber UpgradeCost() { return upgradeCost; }
+        public BigNumber GetUpgradeCost() { return upgradeCost; }
+
+        public double GetUpgradeCostModifier() { return upgradeCostModifier; }
+
+        public int GetLvl() { return lvl; }
 
         public bool GainGold(BigNumber gold)
         {
