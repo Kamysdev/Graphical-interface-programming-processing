@@ -1,30 +1,31 @@
 ﻿using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 namespace Clicker_game.Data
 {
     public class CEnemyList
     {
-        private ObservableCollection<CEnemy> CEmenyCollection { get; set; }
+        private ObservableCollection<CEnemy> CEnemyCollection { get; set; }
 
         public CEnemyList()
         {
-            CEmenyCollection = [];
+            CEnemyCollection = [];
         }
 
         public void LoadFromJson()
         {
-            JsonDocument SavedJson = JsonDocument.Parse(File.ReadAllText("CEnemyTemplateList.json"));
+            var SavedJson = JsonDocument.Parse(File.ReadAllText("CEnemyTemplateList.json"));
 
-            foreach (JsonElement element in SavedJson.RootElement.EnumerateArray())
+            foreach (var element in SavedJson.RootElement.EnumerateArray())
             {
                 try
                 {
-                    CEmenyCollection.Add(new CEnemy(element.GetProperty("Name").GetString(),
+                    CEnemyCollection.Add(new CEnemy(element.GetProperty("Name").GetString(),
                         new BigNumber(element.GetProperty("baseLife").GetString()), 
                         new BigNumber(element.GetProperty("baseGold").GetString()),
-                        );
+                        element.GetProperty("iconName").GetString()));
                 }
                 catch
                 {
@@ -32,9 +33,14 @@ namespace Clicker_game.Data
             }
         }
 
-        public void NormalizwChances()
+        public void NormalizeChances()
         {
+            double sumValue = CEnemyCollection.Sum(enemy => enemy.GetSpawnChance());
 
+            foreach (var valueEnemy in CEnemyCollection)
+            {
+                valueEnemy.SetSpawnChance(valueEnemy.GetSpawnChance() / sumValue);
+            }
         }
 
         public CEnemy GetRandomCEnemy()
