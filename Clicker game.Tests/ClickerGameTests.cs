@@ -1,9 +1,10 @@
 using Clicker_game.Data;
+using Clicker_game.User;
 
 namespace Clicker_game.Tests
 {
     [TestClass]
-    public class ClickerGameTests
+    public class BigNumberTests
     {
         [TestMethod]
         public void BigNumber_Add_999and999_1998returned()
@@ -51,6 +52,25 @@ namespace Clicker_game.Tests
             num1.Divide(num2);
 
             Assert.AreEqual(expected, num1.GetStringNumber());
+        }
+    }
+
+    [TestClass]
+    public class CPlayerTests
+    {
+        [TestMethod]
+        public void CPlayer_Is_Upgradable()
+        {
+            CPlayer TestPlayer = new CPlayer(new BigNumber("100"), 
+                new BigNumber("10"), 
+                5, 
+                new BigNumber("50"), 
+                2);
+
+            string expected = "50";
+
+            Assert.IsTrue(TestPlayer.Upgrade());
+            Assert.AreEqual(expected, TestPlayer.GetGold().GetStringNumber());
         }
     }
 }

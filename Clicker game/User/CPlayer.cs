@@ -33,7 +33,7 @@ namespace Clicker_game.User
 
         public BigNumber GetGold() { return gold; }
 
-        // Сказать про косяк
+        // Сказать про косяк В методичке
         public BigNumber GetDamage() { return damage; }
 
         public double GetDamageModifier() { return damageModifier; }
@@ -51,6 +51,8 @@ namespace Clicker_game.User
             if (Convert.ToInt32(gold.GetStringNumber()) 
                 > Convert.ToInt32(upgradeCost.GetStringNumber()))
             {
+                gold.Subtract(upgradeCost);
+
                 upgradeCost.Multiply(new BigNumber(Convert.ToString(upgradeCostModifier)));
                 damage.Multiply(new BigNumber(Convert.ToString(damageModifier)));
 
