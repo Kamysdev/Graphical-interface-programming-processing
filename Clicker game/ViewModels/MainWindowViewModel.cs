@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reactive;
 using Clicker_game.Data;
 using Clicker_game.User;
 using static System.Net.Mime.MediaTypeNames;
@@ -60,6 +61,11 @@ namespace Clicker_game.ViewModels
             EnemyName = CurrentEnemy.GetName();
             EnemyHP = CurrentEnemy.GetHitPoints().ToString();
             GoldFromEnemy = CurrentEnemy.GetGold().ToString();
+        }
+
+        public void AddDamage()
+        {
+            CurrentEnemy.SetHitPoints(Player.GetDamage());
         }
     }
 }

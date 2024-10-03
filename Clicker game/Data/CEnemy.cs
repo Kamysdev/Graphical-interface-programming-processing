@@ -3,7 +3,7 @@
     public class CEnemy
     {
         private readonly string name;
-        private readonly BigNumber hitPoints;
+        private BigNumber hitPoints;
         private readonly BigNumber gold;
         private readonly string iconName;
 
@@ -27,6 +27,11 @@
         public BigNumber GetHitPoints()
         {
             return hitPoints;
+        }
+
+        public void SetHitPoints(BigNumber inDamage)
+        {
+            hitPoints.Subtract(inDamage);
         }
 
         public BigNumber GetGold()

@@ -18,14 +18,15 @@
 
 	<Grid ColumnDefinitions="* 1.5* *" RowDefinitions="* * * * * *" ShowGridLines="False">
 		<TextBlock Classes="Header" TextAlignment="Center" Text="Enemy name:"/>
-        <TextBox Grid.Row="1" Text="{Binding EnemyName, Mode=OneWay}"/>
+        <TextBox Grid.Row="1" Text="{Binding EnemyName}" FontSize="24" IsReadOnly="True"/>
         <TextBlock Grid.Row="2" Classes="Header" TextAlignment="Center" Text="Enemy Hit Points:"/>
 		<TextBlock Grid.Row="3" FontSize="24" Text="{Binding EnemyHP}" Margin="10 0"/>
         <TextBlock Grid.Row="4" Classes="Header" TextAlignment="Center" Text="Gold from enemy:"/>
         <TextBlock Grid.Row="5" FontSize="24" Text="{Binding GoldFromEnemy}" Margin="10 0"/>
 
         <TextBlock Grid.Column="1" Classes="Header" TextAlignment="Center" Text="Click to deal damage:"/>
-        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Red" Grid.RowSpan="4" Margin="40"/>
+		<Rectangle Grid.Row="1" Grid.Column="1" Fill="Red" Grid.RowSpan="4" Margin="40">
+        </Rectangle>
 		<StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Repeat" FontSize="24"/>
             <Button Content="Next" FontSize="24"/>
