@@ -2,19 +2,21 @@
 {
     public class CEnemy
     {
-        private string name;
-        private BigNumber hitPoints;
-        private BigNumber gold;
-        private string iconPath;
+        private readonly string name;
+        private readonly BigNumber hitPoints;
+        private readonly BigNumber gold;
+        private readonly string iconName;
 
         private double spawnChance;
 
-        public CEnemy(string name, BigNumber hitPoints, BigNumber gold, string iconPath)
+        public CEnemy(string name, BigNumber hitPoints, BigNumber gold, string iconName)
         {
             this.name = name;
             this.hitPoints = hitPoints;
             this.gold = gold;
-            this.iconPath = iconPath;
+            this.iconName = iconName;
+
+            spawnChance = 1;
         }
 
         public string GetName()
@@ -32,9 +34,9 @@
             return gold;
         }
 
-        public string GetIconPath()
+        public string GetIconName()
         {
-            return iconPath;
+            return iconName;
         }
 
         public void SetSpawnChance(double SpawnChance)
