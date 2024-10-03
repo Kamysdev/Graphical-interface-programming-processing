@@ -22,13 +22,15 @@ namespace Clicker_game.User
         private double upgradeCostModifier;
 
         public CPlayer(BigNumber gold, BigNumber damage,
-            double damageModifier, BigNumber upgradeCost, double upgradeCostModifier)
+            double damageModifier, BigNumber upgradeCost, double upgradeCostModifier, int lvl)
         {
             this.gold = gold;
             this.damage = damage;
             this.damageModifier = damageModifier;
             this.upgradeCost = upgradeCost;
             this.upgradeCostModifier = upgradeCostModifier;
+
+            this.lvl = lvl;
         }
 
         public BigNumber GetGold() { return gold; }
@@ -55,6 +57,8 @@ namespace Clicker_game.User
 
                 upgradeCost.Multiply(new BigNumber(Convert.ToString(upgradeCostModifier)));
                 damage.Multiply(new BigNumber(Convert.ToString(damageModifier)));
+
+                lvl++;
 
                 return true;
             }

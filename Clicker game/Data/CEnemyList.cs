@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -35,7 +36,7 @@ namespace Clicker_game.Data
 
         public void NormalizeChances()
         {
-            double sumValue = CEnemyCollection.Sum(enemy => enemy.GetSpawnChance());
+            var sumValue = CEnemyCollection.Sum(enemy => enemy.GetSpawnChance());
 
             foreach (var valueEnemy in CEnemyCollection)
             {
@@ -45,7 +46,9 @@ namespace Clicker_game.Data
 
         public CEnemy GetRandomCEnemy()
         {
-            return null;
+            var sumValue = CEnemyCollection.Sum(enemy => enemy.GetSpawnChance());
+
+            return CEnemyCollection[new Random().Next(Convert.ToInt32(sumValue))];
         }
     }
 }
