@@ -8,10 +8,27 @@ namespace Clicker_game.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private CPlayer? Player;
+        public CPlayer? Player;
 
-        private CEnemyList? EnemyList = new CEnemyList();
-        
+        public CEnemyList? EnemyList = new CEnemyList();
+
+        private string _enemyName;
+        public string EnemyName
+        {
+            get => _enemyName;
+            set { _enemyName = value; OnPropertyChanged(nameof(EnemyName)); }
+        }
+
+        private string _enemyHP;
+        public string EnemyHP
+        {
+            get => _enemyHP;
+            set { _enemyHP = value; OnPropertyChanged(nameof(EnemyHP)); }
+        }
+
+        public string GoldFromEnemy { get; set; }
+
+
         public MainWindowViewModel()
         {
             try
@@ -33,6 +50,8 @@ namespace Clicker_game.ViewModels
                 using var sw = new StreamWriter("log.txt", true);
                 sw.WriteLine(System.DateTime.Now + ": " + ex.Message);
             }
+
+            EnemyList.GetRandomCEnemy();
         }
     }
 }
