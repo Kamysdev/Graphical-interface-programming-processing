@@ -9,8 +9,8 @@ namespace Clicker_game.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         public CPlayer? Player;
-
         public CEnemyList? EnemyList = new CEnemyList();
+        public CEnemy CurrentEnemy;
 
         private string _enemyName;
         public string EnemyName
@@ -26,8 +26,12 @@ namespace Clicker_game.ViewModels
             set { _enemyHP = value; OnPropertyChanged(nameof(EnemyHP)); }
         }
 
-        public string GoldFromEnemy { get; set; }
-
+        private string _goldFromEnemy;
+        public string GoldFromEnemy
+        {
+            get => _goldFromEnemy;
+            set { _goldFromEnemy = value; OnPropertyChanged(nameof(GoldFromEnemy)); }
+        }
 
         public MainWindowViewModel()
         {
@@ -51,7 +55,11 @@ namespace Clicker_game.ViewModels
                 sw.WriteLine(System.DateTime.Now + ": " + ex.Message);
             }
 
-            EnemyList.GetRandomCEnemy();
+            CurrentEnemy = EnemyList.GetRandomCEnemy();
+
+            EnemyName = CurrentEnemy.GetName();
+            EnemyHP = CurrentEnemy.GetHitPoints().ToString();
+            GoldFromEnemy = CurrentEnemy.GetGold().ToString();
         }
     }
 }

@@ -21,16 +21,10 @@ namespace Clicker_game.Data
 
             foreach (var element in SavedJson.RootElement.EnumerateArray())
             {
-                try
-                {
-                    CEnemyCollection.Add(new CEnemy(element.GetProperty("Name").GetString(),
-                        new BigNumber(element.GetProperty("baseLife").GetString()), 
-                        new BigNumber(element.GetProperty("baseGold").GetString()),
-                        element.GetProperty("iconName").GetString()));
-                }
-                catch
-                {
-                }
+                CEnemyCollection.Add(new CEnemy(element.GetProperty("Name").ToString(),
+                    new BigNumber(element.GetProperty("baseLife").ToString()), 
+                    new BigNumber(element.GetProperty("baseGold").ToString()),
+                    element.GetProperty("iconName").ToString()));
             }
         }
 
