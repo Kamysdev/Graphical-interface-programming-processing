@@ -18,3 +18,13 @@
 04.10.2024 3:43:29: Could not find file 'C:\Users\Kamys\source\repos\Graphical interface programming & processing\CEnemyTemplateList.json'.
 04.10.2024 3:43:33: Could not find file 'C:\Users\Kamys\source\repos\Graphical interface programming & processing\Progress.json'.
 04.10.2024 3:43:33: Could not find file 'C:\Users\Kamys\source\repos\Graphical interface programming & processing\CEnemyTemplateList.json'.
+04.10.2024 10:44:15: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\Progress.json'.
+04.10.2024 10:44:15: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\CEnemyTemplateList.json'.
+04.10.2024 11:11:02: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\Progress.json'.
+04.10.2024 11:11:02: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\CEnemyTemplateList.json'.
+04.10.2024 11:11:06: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\Progress.json'.
+04.10.2024 11:11:06: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\CEnemyTemplateList.json'.
+04.10.2024 11:20:24: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\Progress.json'.
+04.10.2024 11:20:24: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\CEnemyTemplateList.json'.
+04.10.2024 11:22:33: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\Progress.json'.
+04.10.2024 11:22:33: Could not find file 'C:\Users\Konstantin\Source\Repos\Kamysdev\Graphical-interface-programming-processing\CEnemyTemplateList.json'.
